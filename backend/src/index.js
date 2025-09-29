@@ -1,4 +1,4 @@
 const express = require('serverless-express/express');
-const app = require('./app.ts');
+const app = require('./app');
 
 exports.handler = express({ app });

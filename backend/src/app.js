@@ -1,4 +1,4 @@
-const express = require('serverless-express/express');
+const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {

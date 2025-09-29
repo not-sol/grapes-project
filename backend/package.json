@@ -1,8 +1,12 @@
 {
+  "scripts": {
+    "dev": "nodemon src/local.js"
+  },
   "dependencies": {
     "serverless-express": "^2.0.12"
   },
   "devDependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
   }
 }
