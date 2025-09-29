@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "serverless-express": "^2.0.12"
+  }
+}
