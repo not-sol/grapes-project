@@ -16,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.11"   # Supported by Lambda
+          python-version: "3.13"   # Supported by Lambda
 
       - name: Install dependencies inside backend/lib
         run: |
