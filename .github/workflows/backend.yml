@@ -16,23 +16,20 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.13"   # Supported by Lambda
+          python-version: "3.13"
 
-      - name: Install dependencies inside backend/lib
+      - name: Install dependencies
         run: |
-          cd backend
-          mkdir -p lib
+          cd infra/lambdas/src
+          mkdir -p package
           python -m pip install --upgrade pip
-          pip install -t lib -r requirements.txt
-
-      - name: Copy application files (api.py)
-        run: |
-          cd backend
-          cp -r *.py lib/
+          pip install -t package -r requirements.txt
 
       - name: Create AWS Lambda ZIP
         run: |
-          cd backend/lib
+          cd infra/lambdas/src
+          cp -r handlers/ package/
+          cd package
           zip -r ../aws-lambda.zip .
 
       - name: Configure AWS credentials
@@ -46,4 +43,4 @@ jobs:
         run: |
           aws lambda update-function-code \
             --function-name grapes-function \
-            --zip-file fileb://backend/aws-lambda.zip
+            --zip-file fileb://infra/lambdas/src/aws-lambda.zip
