@@ -1,4 +1,4 @@
 env/
 aws-lambda.zip
-lib/
 __pycache__/
+package/
